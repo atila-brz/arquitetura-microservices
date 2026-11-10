@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Clima</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Consulta de Clima</h1>
+      <p class="subtitulo">Dados fornecidos pela Open-Meteo</p>
+    </header>
+
+    <form id="form-busca" class="busca" novalidate>
+      <label for="cidade" class="sr-only">Cidade</label>
+      <input id="cidade" name="cidade" type="text" placeholder="Digite uma cidade" minlength="2" maxlength="100" autocomplete="off" required>
+      <button type="submit" id="botao-buscar">Buscar</button>
+    </form>
+
+    <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+
+    <section id="resultado" class="cartao oculto" aria-label="Clima atual">
+      <div class="atual">
+        <div>
+          <h2 id="nome-cidade"></h2>
+          <p id="local-detalhe" class="detalhe"></p>
+          <p id="condicao" class="condicao"></p>
+        </div>
+        <p id="temperatura" class="temperatura"></p>
+      </div>
+      <dl class="metricas">
+        <div><dt>Sensação</dt><dd id="sensacao"></dd></div>
+        <div><dt>Umidade</dt><dd id="umidade"></dd></div>
+        <div><dt>Vento</dt><dd id="vento"></dd></div>
+      </dl>
+      <h3>Próximos dias</h3>
+      <ul id="previsao" class="previsao"></ul>
+    </section>
+
+    <section class="cartao" aria-label="Histórico">
+      <h3>Histórico das últimas 5 cidades</h3>
+      <ul id="historico" class="historico"></ul>
+      <p id="historico-vazio" class="detalhe">Nenhuma cidade consultada ainda.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
